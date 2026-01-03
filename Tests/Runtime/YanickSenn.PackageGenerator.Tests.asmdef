@@ -1,0 +1,20 @@
+{
+    "name": "YanickSenn.PackageGenerator.Tests",
+    "rootNamespace": "YanickSenn.PackageGenerator.Tests",
+    "references": [
+        "YanickSenn.PackageGenerator",
+        "UnityEngine.TestRunner",
+        "UnityEditor.TestRunner"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": false,
+    "defineConstraints": [
+        "UNITY_INCLUDE_TESTS"
+    ],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
