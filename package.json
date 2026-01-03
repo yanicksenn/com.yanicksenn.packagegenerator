@@ -1,13 +1,14 @@
 {
-    "name": "com.yanicksenn.packagegenerator",
-    "version": "1.0.0",
-    "displayName": "Package Generator",
-    "description": "This package contains a unity package generator.",
-    "unity": "6000.0",
-    "unityRelease": "51f1",
-    "author": {
-        "name": "Yanick Senn",
-        "email": "info@yanicksenn.com",
-        "url": "https://www.yanicksenn.com"
-    }
+  "name": "com.yanicksenn.packagegenerator",
+  "version": "1.0.1",
+  "displayName": "Package Generator",
+  "description": "This package contains a unity package generator.",
+  "unity": "6000.0",
+  "unityRelease": "51f1",
+  "author": {
+    "name": "Yanick Senn",
+    "email": "info@yanicksenn.com",
+    "url": "https://www.yanicksenn.com"
+  },
+  "dependencies": null
 }
