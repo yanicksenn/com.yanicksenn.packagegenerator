@@ -1,5 +1,6 @@
 using UnityEditor;
 using UnityEngine;
+using YanickSenn.Utils.Editor;
 
 namespace YanickSenn.PackageGenerator.Editor
 {
@@ -23,8 +24,7 @@ namespace YanickSenn.PackageGenerator.Editor
         public static PackageGeneratorConfiguration GetOrCreateSettings()
         {
             var settings = AssetDatabase.LoadAssetAtPath<PackageGeneratorConfiguration>(SettingsPath);
-            if (settings == null)
-            {
+            if (settings == null) {
                 FileUtils.CreateDirectoryIfNeeded("Assets/Settings");
                 
                 settings = CreateInstance<PackageGeneratorConfiguration>();

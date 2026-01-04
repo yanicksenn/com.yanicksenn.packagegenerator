@@ -2,7 +2,9 @@
     "name": "YanickSenn.PackageGenerator.Editor",
     "rootNamespace": "YanickSenn.PackageGenerator.Editor",
     "references": [
-        "YanickSenn.PackageGenerator"
+        "YanickSenn.PackageGenerator",
+        "YanickSenn.Utils",
+        "YanickSenn.Utils.Editor"
     ],
     "includePlatforms": [
         "Editor"

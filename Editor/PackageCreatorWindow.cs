@@ -6,6 +6,7 @@ using UnityEditor;
 using UnityEditor.PackageManager;
 using UnityEngine;
 using YanickSenn.PackageGenerator.Editor.Shared;
+using YanickSenn.Utils.Editor;
 
 namespace YanickSenn.PackageGenerator.Editor
 {
