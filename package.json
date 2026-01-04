@@ -1,6 +1,6 @@
 {
   "name": "com.yanicksenn.packagegenerator",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "displayName": "Package Generator",
   "description": "This package contains a unity package generator.",
   "unity": "6000.0",
