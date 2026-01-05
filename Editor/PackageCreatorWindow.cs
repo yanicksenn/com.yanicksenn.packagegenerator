@@ -108,8 +108,7 @@ namespace YanickSenn.PackageGenerator.Editor
             return validationErrors.Count == 0;
         }
 
-        private List<string> ValidateInput()
-        {
+        private List<string> ValidateInput() {
             List<string> validationErrors = new List<string>();
 
             if (!Regex.IsMatch(_packageName, @"^com\.([a-z0-9_]+)\.([a-z0-9_]+)$"))
