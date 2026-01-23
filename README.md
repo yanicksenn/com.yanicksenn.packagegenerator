@@ -1,35 +1,62 @@
-# Package Generator
-This package contains a unity package generator.
+# com.yanicksenn.packagegenerator
+URL: https://github.com/yanicksenn/com.yanicksenn.packagegenerator.git
 
-## Installation
-1. Open "Package Manager"
-2. Choose "Add package from git URL..."
-3. Use the HTTPS URL of this repository:
+![Version](https://img.shields.io/badge/version-1.0.6-blue)
+![Unity Version](https://img.shields.io/badge/unity-6000.0+-lightgrey)
+
+**com.yanicksenn.packagegenerator** is a Tool for Unity that automates the scaffolding of new Unity packages, ensuring consistent folder structures, assembly definitions, and metadata configuration.
+
+## 📦 Installation
+
+### via Git URL
+Open the Unity Package Manager, click the "+" icon, select "Add package from git URL...", and paste:
+
 ```
-https://github.com/yanicksenn/com.yanicksenn.packagegenerator.git#1.0.0
+https://github.com/yanicksenn/com.yanicksenn.packagegenerator.git#1.0.6
 ```
-4. Click "Add"
 
-## Features
-This package provides a tool to quickly scaffold new Unity packages with a standardized structure:
-* **Package Scaffolding:** Generates the complete folder structure including `Runtime`, `Editor`, and `Tests` directories.
-* **Metadata Generation:** Automatically creates `package.json` with customizable metadata (version, author, dependencies).
-* **Assembly Definitions:** Generates `.asmdef` files for all assemblies with appropriate references and platform settings.
-* **Documentation Templates:** Creates placeholder `README.md`, `CHANGELOG.md`, and `LICENSE.md` files.
-* **Configuration:** Supports a configuration asset to define default values for new packages (Author info, root namespace, etc.).
+## ✨ Features
 
-## How to Use
-### Opening the Package Generator
-To open the package generator window, go to the Unity menu and select `Tools > Package Generator > Create Package`.
+- **Package Scaffolding:** Generates a standardized directory structure including `Runtime`, `Editor`, and `Tests` folders, along with `package.json`, `README.md`, `CHANGELOG.md`, and `LICENSE.md`.
+- **Metadata Configuration:** Provides a configurable settings provider (accessible via Project Settings) to define default values for author name, email, URL, root namespace, and package naming patterns.
+- **Assembly Definition Generation:** Automatically creates `.asmdef` files for Runtime, Editor, and Test assemblies with appropriate platform constraints, references (e.g., `nunit.framework`), and define constraints.
 
-### Configuring Defaults
-The tool uses a configuration asset to pre-fill common fields.
-* **Location:** The configuration is located at `Assets/Settings/PackageGeneratorConfiguration.asset`.
-* **Auto-Creation:** If the configuration file does not exist, it will be automatically created when the window is opened.
-* **Customization:** Select the configuration asset to modify default Author Name, Email, URL, Root Namespace, and Package Name pattern.
+## 🚀 Usage
 
-### Creating a Package
-1. **Fill Details:** Enter the desired Package Name, Version, Display Name, and other metadata in the "Package Information" form.
-2. **Validation:** The tool validates inputs (e.g., package name format `com.company.package`, version format `x.y.z`) and provides feedback.
-3. **Create:** Click the "Create" button to generate the package.
-   * If the package directory already exists, the tool will only create missing files.
+### ⚙️ Package Creation Interface
+
+The primary functionality is accessed via an Editor Window which validates user input (using Regex for versions and namespaces) and creates the physical package files. While typically accessed via the Unity Menu (`Tools/Package Generator/Create Package`), it can be triggered programmatically.
+
+```csharp
+using YanickSenn.PackageGenerator.Editor;
+
+// Programmatically open the Package Creator window
+PackageCreatorWindow.ShowWindow();
+```
+
+### ⚙️ Managing Configuration
+
+The tool persists default values (such as Author Name or Root Namespace) in a ScriptableObject. You can access or modify these defaults via code to enforce specific standards across your team or project.
+
+```csharp
+using UnityEditor;
+using YanickSenn.PackageGenerator.Editor;
+
+// Retrieve or create the settings asset
+var settings = PackageGeneratorConfiguration.GetOrCreateSettings();
+
+// Read or modify default configuration values
+string currentNamespace = settings.defaultRootNamespace;
+settings.defaultAuthorName = "New Author Name";
+settings.defaultPackageName = "com.new.standard";
+
+// Save changes to the asset
+EditorUtility.SetDirty(settings);
+AssetDatabase.SaveAssets();
+```
+
+## 🔧 Requirements
+
+* **Unity Version:** 6000.0 or higher
+* **Dependencies:**
+* com.yanicksenn.utils
