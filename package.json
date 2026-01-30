@@ -1,6 +1,6 @@
 {
   "name": "com.yanicksenn.packagegenerator",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "displayName": "Package Generator",
   "description": "This package contains a unity package generator.",
   "unity": "6000.0",
@@ -11,6 +11,6 @@
     "url": "https://www.yanicksenn.com"
   },
   "dependencies": {
-    "com.yanicksenn.utils": "https://github.com/yanicksenn/com.yanicksenn.utils.git#2.0.5"
+    "com.yanicksenn.utils": "https://github.com/yanicksenn/com.yanicksenn.utils.git#2.0.6"
   }
 }
