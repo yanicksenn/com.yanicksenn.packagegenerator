@@ -17,15 +17,14 @@ https://github.com/yanicksenn/com.yanicksenn.packagegenerator.git#1.0.6
 
 ## ✨ Features
 
-- **Package Scaffolding:** Generates a standardized directory structure including `Runtime`, `Editor`, and `Tests` folders, along with `package.json`, `README.md`, `CHANGELOG.md`, and `LICENSE.md`.
-- **Metadata Configuration:** Provides a configurable settings provider (accessible via Project Settings) to define default values for author name, email, URL, root namespace, and package naming patterns.
-- **Assembly Definition Generation:** Automatically creates `.asmdef` files for Runtime, Editor, and Test assemblies with appropriate platform constraints, references (e.g., `nunit.framework`), and define constraints.
+- **Package Scaffolding:** Generates a standardized directory structure including `Runtime`, `Editor`, and `Tests` folders, along with essential files like `package.json`, `README.md`, and correctly configured `.asmdef` files.
+- **Configuration Management:** persist default settings for author details, namespaces, and package naming conventions via a ScriptableObject integrated into Project Settings.
 
 ## 🚀 Usage
 
-### ⚙️ Package Creation Interface
+### ⚙️ Package Creator Window
 
-The primary functionality is accessed via an Editor Window which validates user input (using Regex for versions and namespaces) and creates the physical package files. While typically accessed via the Unity Menu (`Tools/Package Generator/Create Package`), it can be triggered programmatically.
+The package generation interface allows users to input package details, validates the input against naming conventions, and generates the file structure. It can be accessed via `Tools/Package Generator/Create Package` or programmatically.
 
 ```csharp
 using YanickSenn.PackageGenerator.Editor;
@@ -34,9 +33,9 @@ using YanickSenn.PackageGenerator.Editor;
 PackageCreatorWindow.ShowWindow();
 ```
 
-### ⚙️ Managing Configuration
+### ⚙️ Configuration Management
 
-The tool persists default values (such as Author Name or Root Namespace) in a ScriptableObject. You can access or modify these defaults via code to enforce specific standards across your team or project.
+The tool uses a `ScriptableObject` to store default values for package generation. You can access and modify these settings via code to enforce standards across your project.
 
 ```csharp
 using UnityEditor;
@@ -46,9 +45,9 @@ using YanickSenn.PackageGenerator.Editor;
 var settings = PackageGeneratorConfiguration.GetOrCreateSettings();
 
 // Read or modify default configuration values
-string currentNamespace = settings.defaultRootNamespace;
 settings.defaultAuthorName = "New Author Name";
-settings.defaultPackageName = "com.new.standard";
+settings.defaultRootNamespace = "My.Custom.Namespace";
+settings.defaultPackageName = "com.my.package";
 
 // Save changes to the asset
 EditorUtility.SetDirty(settings);
